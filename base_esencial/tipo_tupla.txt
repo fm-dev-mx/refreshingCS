@@ -1,0 +1,22 @@
+using System;
+
+namespace EsencialEjemplos
+{
+    class Program
+    {
+        public class Coordenadas { public int x; public int y; }
+        static void Main(string[] args)
+        {
+            #region tipo tupla
+            var proveedor = (Nombre: "Alberto", Apellido: "Perez");
+            Console.WriteLine($"Provider: {proveedor.Nombre}, {proveedor.Apellido}");
+
+            (string Nombre, string Apellido) proveedorB = (Nombre: "Noemi", Apellido: "Leon");
+
+            proveedorB.Nombre = "Maria";
+            Console.WriteLine($"Proveedor: {proveedorB.Nombre}, {proveedorB.Apellido}");
+            #endregion
+        }
+
+    }
+}

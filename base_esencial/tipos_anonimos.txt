@@ -1,0 +1,37 @@
+using System;
+
+namespace EsencialEjemplos
+{
+    class Program
+    {
+        public class Coordenadas { public int x; public int y; }
+        static void Main(string[] args)
+        {
+            #region anonimos
+            var locacion = new { Pais = "Austria", Ciudad = "Graz" };
+            Console.WriteLine("locacion - Pais: {0}, Ciudad: {1}", locacion.Pais, locacion.Ciudad);
+            //locacion.Pais = "Mexico";
+
+            var locacionB = new { Pais = "Mexico", Ciudad = "CDMX" };
+            var cliente = new
+            {
+                Nombre = "Noemi",
+                Apellido = "Noemi",
+                Locacion = locacion
+            };
+
+            var clientes = new[]
+            {
+                new { Nombre = "Clara", Apellido = "Castro", Locacion = locacionB},
+                new { Nombre = "Raul", Apellido = "Noel", Locacion = locacion},
+                cliente
+            };
+            foreach(var cl in clientes)
+            {
+                Console.WriteLine("cliente - Nombre {0}, Pais {1}", cl.Nombre, cl.Locacion.Pais);
+            }
+            #endregion
+        }
+
+    }
+}
