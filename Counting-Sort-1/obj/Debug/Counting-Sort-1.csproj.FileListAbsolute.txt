@@ -1,0 +1,8 @@
+C:\Users\frmen\OneDrive\Documentos\Code\Counting-Sort-1\obj\Debug\Counting-Sort-1.csproj.AssemblyReference.cache
+C:\Users\frmen\OneDrive\Documentos\Code\Counting-Sort-1\obj\Debug\Counting-Sort-1.csproj.SuggestedBindingRedirects.cache
+C:\Users\frmen\OneDrive\Documentos\Code\Counting-Sort-1\obj\Debug\Counting-Sort-1.csproj.CoreCompileInputs.cache
+C:\Users\frmen\OneDrive\Documentos\Code\Counting-Sort-1\bin\Debug\Counting-Sort-1.exe.config
+C:\Users\frmen\OneDrive\Documentos\Code\Counting-Sort-1\bin\Debug\Counting-Sort-1.exe
+C:\Users\frmen\OneDrive\Documentos\Code\Counting-Sort-1\bin\Debug\Counting-Sort-1.pdb
+C:\Users\frmen\OneDrive\Documentos\Code\Counting-Sort-1\obj\Debug\Counting-Sort-1.exe
+C:\Users\frmen\OneDrive\Documentos\Code\Counting-Sort-1\obj\Debug\Counting-Sort-1.pdb

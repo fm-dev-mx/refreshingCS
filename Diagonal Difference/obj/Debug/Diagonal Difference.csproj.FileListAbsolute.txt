@@ -1,0 +1,8 @@
+C:\Users\frmen\OneDrive\Documentos\Code\Diagonal Difference\obj\Debug\Diagonal Difference.csproj.AssemblyReference.cache
+C:\Users\frmen\OneDrive\Documentos\Code\Diagonal Difference\obj\Debug\Diagonal Difference.csproj.SuggestedBindingRedirects.cache
+C:\Users\frmen\OneDrive\Documentos\Code\Diagonal Difference\obj\Debug\Diagonal Difference.csproj.CoreCompileInputs.cache
+C:\Users\frmen\OneDrive\Documentos\Code\Diagonal Difference\bin\Debug\Diagonal Difference.exe.config
+C:\Users\frmen\OneDrive\Documentos\Code\Diagonal Difference\bin\Debug\Diagonal Difference.exe
+C:\Users\frmen\OneDrive\Documentos\Code\Diagonal Difference\bin\Debug\Diagonal Difference.pdb
+C:\Users\frmen\OneDrive\Documentos\Code\Diagonal Difference\obj\Debug\Diagonal Difference.exe
+C:\Users\frmen\OneDrive\Documentos\Code\Diagonal Difference\obj\Debug\Diagonal Difference.pdb

@@ -1,0 +1,8 @@
+C:\Users\frmen\OneDrive\Documentos\Code\refreshingCSharp\bin\Debug\refreshingCSharp.exe.config
+C:\Users\frmen\OneDrive\Documentos\Code\refreshingCSharp\bin\Debug\refreshingCSharp.exe
+C:\Users\frmen\OneDrive\Documentos\Code\refreshingCSharp\bin\Debug\refreshingCSharp.pdb
+C:\Users\frmen\OneDrive\Documentos\Code\refreshingCSharp\obj\Debug\refreshingCSharp.csproj.AssemblyReference.cache
+C:\Users\frmen\OneDrive\Documentos\Code\refreshingCSharp\obj\Debug\refreshingCSharp.csproj.SuggestedBindingRedirects.cache
+C:\Users\frmen\OneDrive\Documentos\Code\refreshingCSharp\obj\Debug\refreshingCSharp.csproj.CoreCompileInputs.cache
+C:\Users\frmen\OneDrive\Documentos\Code\refreshingCSharp\obj\Debug\refreshingCSharp.exe
+C:\Users\frmen\OneDrive\Documentos\Code\refreshingCSharp\obj\Debug\refreshingCSharp.pdb

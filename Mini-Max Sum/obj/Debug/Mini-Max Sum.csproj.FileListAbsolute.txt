@@ -1,0 +1,8 @@
+C:\Users\frmen\OneDrive\Documentos\Code\Mini-Max Sum\bin\Debug\Mini-Max Sum.exe.config
+C:\Users\frmen\OneDrive\Documentos\Code\Mini-Max Sum\bin\Debug\Mini-Max Sum.exe
+C:\Users\frmen\OneDrive\Documentos\Code\Mini-Max Sum\bin\Debug\Mini-Max Sum.pdb
+C:\Users\frmen\OneDrive\Documentos\Code\Mini-Max Sum\obj\Debug\Mini-Max Sum.csproj.AssemblyReference.cache
+C:\Users\frmen\OneDrive\Documentos\Code\Mini-Max Sum\obj\Debug\Mini-Max Sum.csproj.SuggestedBindingRedirects.cache
+C:\Users\frmen\OneDrive\Documentos\Code\Mini-Max Sum\obj\Debug\Mini-Max Sum.csproj.CoreCompileInputs.cache
+C:\Users\frmen\OneDrive\Documentos\Code\Mini-Max Sum\obj\Debug\Mini-Max Sum.exe
+C:\Users\frmen\OneDrive\Documentos\Code\Mini-Max Sum\obj\Debug\Mini-Max Sum.pdb

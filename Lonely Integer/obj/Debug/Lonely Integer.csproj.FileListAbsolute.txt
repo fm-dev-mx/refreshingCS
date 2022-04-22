@@ -1,0 +1,8 @@
+C:\Users\frmen\OneDrive\Documentos\Code\Lonely Integer\obj\Debug\Lonely Integer.csproj.AssemblyReference.cache
+C:\Users\frmen\OneDrive\Documentos\Code\Lonely Integer\obj\Debug\Lonely Integer.csproj.SuggestedBindingRedirects.cache
+C:\Users\frmen\OneDrive\Documentos\Code\Lonely Integer\obj\Debug\Lonely Integer.csproj.CoreCompileInputs.cache
+C:\Users\frmen\OneDrive\Documentos\Code\Lonely Integer\bin\Debug\Lonely Integer.exe.config
+C:\Users\frmen\OneDrive\Documentos\Code\Lonely Integer\bin\Debug\Lonely Integer.exe
+C:\Users\frmen\OneDrive\Documentos\Code\Lonely Integer\bin\Debug\Lonely Integer.pdb
+C:\Users\frmen\OneDrive\Documentos\Code\Lonely Integer\obj\Debug\Lonely Integer.exe
+C:\Users\frmen\OneDrive\Documentos\Code\Lonely Integer\obj\Debug\Lonely Integer.pdb

@@ -1,0 +1,8 @@
+C:\Users\frmen\OneDrive\Documentos\Code\Time Conversion\obj\Debug\Time Conversion.csproj.AssemblyReference.cache
+C:\Users\frmen\OneDrive\Documentos\Code\Time Conversion\obj\Debug\Time Conversion.csproj.SuggestedBindingRedirects.cache
+C:\Users\frmen\OneDrive\Documentos\Code\Time Conversion\obj\Debug\Time Conversion.csproj.CoreCompileInputs.cache
+C:\Users\frmen\OneDrive\Documentos\Code\Time Conversion\bin\Debug\Time Conversion.exe.config
+C:\Users\frmen\OneDrive\Documentos\Code\Time Conversion\bin\Debug\Time Conversion.exe
+C:\Users\frmen\OneDrive\Documentos\Code\Time Conversion\bin\Debug\Time Conversion.pdb
+C:\Users\frmen\OneDrive\Documentos\Code\Time Conversion\obj\Debug\Time Conversion.exe
+C:\Users\frmen\OneDrive\Documentos\Code\Time Conversion\obj\Debug\Time Conversion.pdb

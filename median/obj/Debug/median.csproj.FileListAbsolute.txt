@@ -1,0 +1,8 @@
+C:\Users\frmen\OneDrive\Documentos\Code\median\bin\Debug\median.exe.config
+C:\Users\frmen\OneDrive\Documentos\Code\median\bin\Debug\median.exe
+C:\Users\frmen\OneDrive\Documentos\Code\median\bin\Debug\median.pdb
+C:\Users\frmen\OneDrive\Documentos\Code\median\obj\Debug\median.csproj.AssemblyReference.cache
+C:\Users\frmen\OneDrive\Documentos\Code\median\obj\Debug\median.csproj.SuggestedBindingRedirects.cache
+C:\Users\frmen\OneDrive\Documentos\Code\median\obj\Debug\median.csproj.CoreCompileInputs.cache
+C:\Users\frmen\OneDrive\Documentos\Code\median\obj\Debug\median.exe
+C:\Users\frmen\OneDrive\Documentos\Code\median\obj\Debug\median.pdb
