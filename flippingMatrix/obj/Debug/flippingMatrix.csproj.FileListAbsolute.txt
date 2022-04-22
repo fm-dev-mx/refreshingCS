@@ -6,3 +6,11 @@ C:\Users\frmen\OneDrive\Documentos\Code\refreshingCSharp\flippingMatrix\bin\Debu
 C:\Users\frmen\OneDrive\Documentos\Code\refreshingCSharp\flippingMatrix\bin\Debug\flippingMatrix.pdb
 C:\Users\frmen\OneDrive\Documentos\Code\refreshingCSharp\flippingMatrix\obj\Debug\flippingMatrix.exe
 C:\Users\frmen\OneDrive\Documentos\Code\refreshingCSharp\flippingMatrix\obj\Debug\flippingMatrix.pdb
+C:\Users\frmen\OneDrive\Documentos\Code\tutorials\CSh\flippingMatrix\bin\Debug\flippingMatrix.exe.config
+C:\Users\frmen\OneDrive\Documentos\Code\tutorials\CSh\flippingMatrix\bin\Debug\flippingMatrix.exe
+C:\Users\frmen\OneDrive\Documentos\Code\tutorials\CSh\flippingMatrix\bin\Debug\flippingMatrix.pdb
+C:\Users\frmen\OneDrive\Documentos\Code\tutorials\CSh\flippingMatrix\obj\Debug\flippingMatrix.csproj.AssemblyReference.cache
+C:\Users\frmen\OneDrive\Documentos\Code\tutorials\CSh\flippingMatrix\obj\Debug\flippingMatrix.csproj.SuggestedBindingRedirects.cache
+C:\Users\frmen\OneDrive\Documentos\Code\tutorials\CSh\flippingMatrix\obj\Debug\flippingMatrix.csproj.CoreCompileInputs.cache
+C:\Users\frmen\OneDrive\Documentos\Code\tutorials\CSh\flippingMatrix\obj\Debug\flippingMatrix.exe
+C:\Users\frmen\OneDrive\Documentos\Code\tutorials\CSh\flippingMatrix\obj\Debug\flippingMatrix.pdb
