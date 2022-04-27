@@ -19,85 +19,76 @@ namespace flippingMatrix
          * The function accepts 2D_INTEGER_ARRAY matrix as parameter.
          */
 
+        
         public static int flippingMatrix(List<List<int>> matrix)
         {
-            printMatrix("first");
+            int ep = matrix.Count - 1;
 
-            int max1 = 0, max2 = 0, max3 = 0, max4 = 0, ep = matrix.Count - 1, count=0, rowBan=-1, colBan=-1;
-            bool ban00 = false, ban01 = false, ban10 = false, ban11 = false;
-           
-            void maxValues()
+            void print(string param, int cant, string msg)
             {
-                for (int i = 0; i < matrix.Count; i++)
+                switch (param)
                 {
-                    for (int j = 0; j < matrix.Count; j++)
+                    case "msg":
+                        for (int i = 0; i < cant; i++)
+                            Console.WriteLine("---------- " + msg + " ---------------");
+                        break;
+                    case "max":
+                        for (int i = 0; i < cant; i++)
+                            Console.WriteLine("Max " + (i + 1) + " = " + getMaxValue(i + 1));
+                        break;
+                    case "matrix":
+                        if (cant == 0)
+                        {
+                            for (int row = 0; row < matrix.Count; row++)
+                            {
+                                for (int col = 0; col < matrix.Count; col++)
+                                {
+                                    Console.Write(row + "-" + col + " ");
+                                }
+                                Console.WriteLine();
+                            }
+                        }
+                        else
+                        {
+                            foreach (var subLista in matrix)
+                            {
+                                foreach (var item in subLista)
+                                {
+                                    Console.Write(item + " ");
+                                }
+                                Console.WriteLine();
+                            }
+                        }
+                        break;
+                }
+                Console.WriteLine("-------- " + msg + " ---------");
+            }
+
+            int getMaxValue(int number)
+            {
+                List<int> listaTotal = new List<int>();
+                foreach (var subLista in matrix)
+                    foreach (var item in subLista)
                     {
-                        if (max1 < matrix[i][j] && matrix[i][j] != max1 && matrix[i][j] != max2 && matrix[i][j] != max3 && matrix[i][j] != max4)
-                        {
-                            max4 = max3;
-                            max3 = max2;
-                            max2 = max1;
-                            max1 = matrix[i][j];
-                        }
-                        else if (max2 < matrix[i][j] && matrix[i][j] != max1 && matrix[i][j] != max2 && matrix[i][j] != max3 && matrix[i][j] != max4)
-                        {
-                            max4 = max3;
-                            max3 = max2;
-                            max2 = matrix[i][j];
-                        }
-                        else if (max3 < matrix[i][j] && matrix[i][j] != max1 && matrix[i][j] != max2 && matrix[i][j] != max3 && matrix[i][j] != max4)
-                        {
-                            max4 = max3;
-                            max3 = matrix[i][j];
-                        }
-                        else if (max4 < matrix[i][j] && matrix[i][j] != max1 && matrix[i][j] != max2 && matrix[i][j] != max3 && matrix[i][j] != max4)
-                        {
-                            max4 = matrix[i][j];
-                        }
-
+                        listaTotal.Add(item);
                     }
-                }
-            }
-            
-            void printMax()
-            {
-                maxValues();
-                Console.WriteLine("Max 1 => " + max1);
-                Console.WriteLine("Max 2 => " + max2);
-                Console.WriteLine("Max 3 => " + max3);
-                Console.WriteLine("Max 4 => " + max4);
-                Console.WriteLine("------------------");
-            }
-            
-            void printMatrix(string msg)
-            {
-                for (int row = 0; row < matrix.Count; row++)
-                {
-                    for (int col = 0; col < matrix.Count; col++)
-                    {                        
-                        Console.Write(matrix[row][col] + " ");                        
-                    }
-                    Console.WriteLine();
-                }
-                Console.WriteLine("-----------" + msg + "--------------");
+                listaTotal.Sort();
+                return listaTotal[listaTotal.Count - number];
             }
 
-            void printPositions()
-            {
-                for (int row = 0; row < matrix.Count; row++)
-                {
-                    for (int col = 0; col < matrix.Count; col++)
-                    {
-                        Console.Write(row + "-" + col +" ");
-                    }
-                    Console.WriteLine();
-                }
-                Console.WriteLine("-------------------------");
+            int getOppositeRowValue(int row, int col)
+            {                
+                return matrix[row][ep-col];
             }
 
-            void printMsg(string msg)
+            int getOppositeColumnValue(int row, int col)
             {
-                Console.WriteLine(msg);
+                return matrix[ep - row][col];
+            }
+
+            int getOppositeValue(int row, int col)
+            {
+                return matrix[ep - row][ep-col];
             }
 
             void columnReverse(int y)
@@ -124,391 +115,187 @@ namespace flippingMatrix
                     List<int> subMatrix = new List<int>();
                     for (int col = 0; col < matrixCol.Count; col++)
                     {
-                        subMatrix.Add(matrixCol[row][col]);
+                        subMatrix.Add(matrixCol[col][row]);
                     }
                     matrix.Add(subMatrix);
                 }
 
             }
 
-            void actives(int row, int col, int val)
+            int rowReverse(int row, int col)
             {
-                printMsg("Actives");
-                if (ban00 == true)
+                if (matrix[row][col] > getOppositeRowValue(row, col))
                 {
-                    while (rowBan == 0 && colBan == 1 || rowBan == 1 && colBan == 1 || rowBan == 1 && colBan == 0)
+                    while (col > 1)
                     {
-                        if ((row == 0 && col == ep && val < matrix[0][0]) || (col == 0 && row == ep && val < matrix[0][0]))
+                        if (ep - col == 0)
                         {
-                            rowBan = -1;
-                            colBan = -1;
-                            break;
+                            if (matrix[row][1] > getOppositeRowValue(row, 1))
+                            {
+                                columnReverse(1);
+                                matrix[row].Reverse();
+                                columnReverse(1);
+                                col = ep - col;
+                                print("matrix", 1, "col > 1 y columna 1 mayor");
+                                return col;
+                            }
+                            else
+                            {
+                                matrix[row].Reverse();
+                                col = ep - col;
+                                print("matrix", 1, "col > 1 y columna 1 menor");
+                                return col;
+                            }
                         }
-                        else if (row == 0 && col == ep && val > matrix[0][0])
+                        else if (ep - col == 1)
                         {
-                            matrix[row].Reverse();
-                            rowBan = row;
-                            colBan = ep - col;
-                            break;
+                            if (matrix[row][0] > getOppositeRowValue(row, 0))
+                            {
+                                columnReverse(0);
+                                matrix[row].Reverse();
+                                columnReverse(0);
+                                col = ep - col;
+                                print("matrix", 1, "col > 1 y columna 0 mayor");
+                                return col;
+                            }
+                            else
+                            {
+                                matrix[row].Reverse();
+                                col = ep - col;
+                                print("matrix", 1, "col > 1 y columna 0 menor");
+                                return col;
+                            }
                         }
-                        else if (col == 0 && row == ep && val > matrix[0][0])
-                        {
-                            columnReverse(col);
-                            rowBan = ep - row;
-                            colBan = col;
-                            break;
-                        }
-                        else if (row == ep - 1)
-                        {
-                            matrix[row].Reverse();
-                            columnReverse(ep - col);
-                            matrix[ep - row].Reverse();
-                            rowBan = ep - row;
-                            colBan = col;
-                        }
-                        else if (col == ep - 1)
-                        {
-                            columnReverse(col);
-                            matrix[ep - row].Reverse();
-                            columnReverse(ep - col);
-                            rowBan = row;
-                            colBan = ep - col;
-                        }
-                        else if ((col != 0) && (ep - row <= 1))
-                        {
-                            columnReverse(col);
-                            rowBan = ep - row;
-                            colBan = col;
-                        }
-                        else if ((row != 0) && (ep - col <= 1))
-                        {
-                            matrix[row].Reverse();
-                            rowBan = row;
-                            colBan = ep - col;
-                        }
-                        else if ((col != 0))
-                        {
-                            columnReverse(col);
-                            rowBan = ep - row;
-                            colBan = col;
-                        }
-                        else if ((row != 0))
-                        {
-                            matrix[row].Reverse();
-                            rowBan = row;
-                            colBan = ep - col;
-                        }
-
                     }
-                    if (rowBan == 0 && colBan == 0)
-                        printMsg("Se capturo movimiento erroneo");
+                    return col;
                 }
-                if (ban10 == true)
-                {
-                    while (rowBan == 0 && colBan == 1 || rowBan == 1 && colBan == 1 || rowBan == 0 && colBan == 0)
-                    {
-                        if ((row == 1 && col == ep && val < matrix[1][0]) || (col == 0 && row == ep - 1 && val < matrix[1][0]))
-                        {
-                            rowBan = -1;
-                            colBan = -1;
-                            break;
-                        }
-                        else if (row == 0 && col == ep - 1 && val > matrix[0][0])
-                        {
-                            columnReverse(col);
-                            rowBan = ep - row;
-                            colBan = col;
-                            break;
-                        }
-                        else if (col == ep && row == 1 && val > matrix[0][0])
-                        {
-                            matrix[row].Reverse();
-                            rowBan = row;
-                            colBan = ep - col;
-                            break;
-                        }
-                        /* else if (row == ep - 1)
-                         {
-                             matrix[row].Reverse();
-                             columnReverse(ep - col);
-                             matrix[ep - row].Reverse();
-                             rowBan = ep - row;
-                             colBan = col;
-                         }
-                         else if (col == ep - 1)
-                         {
-                             columnReverse(col);
-                             matrix[ep - row].Reverse();
-                             columnReverse(ep - col);
-                             rowBan = row;
-                             colBan = ep - col;
-                         }*/
-                        else if ((col != 0) && (ep - row <= 1))
-                        {
-                            columnReverse(col);
-                            rowBan = ep - row;
-                            colBan = col;
-                        }
-                        else if ((row != 1) && (ep - col <= 1))
-                        {
-                            matrix[row].Reverse();
-                            rowBan = row;
-                            colBan = ep - col;
-                        }
-                        else if ((col != 0))
-                        {
-                            columnReverse(col);
-                            rowBan = ep - row;
-                            colBan = col;
-                        }
-                        else if ((row != 1))
-                        {
-                            matrix[row].Reverse();
-                            rowBan = row;
-                            colBan = ep - col;
-                        }
-
-                    }
-                    if (rowBan == 1 && colBan == 0)
-                        printMsg("Se capturo movimiento erroneo");
-
-                }
-                if (ban01 == true)
-                {
-                    while (rowBan == 0 && colBan == 0 || rowBan == 1 && colBan == 0 || rowBan == 1 && colBan == 1)
-                    {
-                        if ((row == ep && col == 1 && val < matrix[0][1]) || (col == ep - 1 && row == 0 && val < matrix[0][1]) || (col == ep - 1 && row == ep && val < matrix[0][1]))
-                        {
-                            rowBan = -1;
-                            colBan = -1;
-                            break;
-                        }
-                        else if (row == 0 && col == ep - 1 && val > matrix[0][1])
-                        {
-                            matrix[row].Reverse();
-                            rowBan = row;
-                            colBan = ep - col;
-                            break;
-                        }
-                        else if (col == ep - 1 && row == 0 && val > matrix[0][1])
-                        {
-                            matrix[row].Reverse();
-                            rowBan = row;
-                            colBan = ep - col;
-                            break;
-                        }
-                        else if (col == ep - 1 && row == ep && val > matrix[0][1])
-                        {
-                            matrix[row].Reverse();
-                            rowBan = row;
-                            colBan = ep - col;
-                            break;
-                        }
-                        /* else if (row == ep - 1)
-                         {
-                             matrix[row].Reverse();
-                             columnReverse(ep - col);
-                             matrix[ep - row].Reverse();
-                             rowBan = ep - row;
-                             colBan = col;
-                         }
-                         else if (col == ep - 1)
-                         {
-                             columnReverse(col);
-                             matrix[ep - row].Reverse();
-                             columnReverse(ep - col);
-                             rowBan = row;
-                             colBan = ep - col;
-                         }*/
-                        else if ((col != 1) && (ep - row <= 1))
-                        {
-                            columnReverse(col);
-                            rowBan = ep - row;
-                            colBan = col;
-                        }
-                        else if ((row != 0) && (ep - col <= 1))
-                        {
-                            matrix[row].Reverse();
-                            rowBan = row;
-                            colBan = ep - col;
-                        }
-                        else if ((col != 1))
-                        {
-                            columnReverse(col);
-                            rowBan = ep - row;
-                            colBan = col;
-                        }
-                        else if ((row != 0))
-                        {
-                            matrix[row].Reverse();
-                            rowBan = row;
-                            colBan = ep - col;
-                        }
-
-                    }
-                    if (rowBan == 0 && colBan == 1)
-                        printMsg("Se capturo movimiento erroneo");
-
-                }
-                if (ban11 == true)
-                {
-                    while (rowBan == 0 && colBan == 0 || rowBan == 1 && colBan == 0 || rowBan == 0 && colBan == 1)
-                    {
-                        if ((row == ep - 1 && col == 1 && val < matrix[1][1]) || (col == ep - 1 && row == 1 && val < matrix[1][1]) || (col == ep - 1 && row == ep - 1 && val < matrix[1][1]))
-                        {
-                            rowBan = -1;
-                            colBan = -1;
-                            break;
-                        }
-                        else if (row == ep - 1 && col == 1 && val > matrix[1][1])
-                        {
-                            columnReverse(col);
-                            rowBan = ep - row;
-                            colBan = col;
-                            break;
-                        }
-                        else if (col == ep - 1 && row == 1 && val > matrix[1][1])
-                        {
-                            matrix[row].Reverse();
-                            rowBan = row;
-                            colBan = ep - col;
-                            break;
-                        }
-                        else if (col == ep - 1 && row == ep - 1 && val > matrix[1][1])
-                        {
-                            matrix[row].Reverse();
-                            columnReverse(ep - col);
-                            rowBan = ep - row;
-                            colBan = ep - col;
-                            break;
-                        }
-                        /* else if (row == ep - 1)
-                         {
-                             matrix[row].Reverse();
-                             columnReverse(ep - col);
-                             matrix[ep - row].Reverse();
-                             rowBan = ep - row;
-                             colBan = col;
-                         }
-                         else if (col == ep - 1)
-                         {
-                             columnReverse(col);
-                             matrix[ep - row].Reverse();
-                             columnReverse(ep - col);
-                             rowBan = row;
-                             colBan = ep - col;
-                         }*/
-                        else if ((col != 1) && (ep - row <= 1))
-                        {
-                            columnReverse(col);
-                            rowBan = ep - row;
-                            colBan = col;
-                        }
-                        else if ((row != 1) && (ep - col <= 1))
-                        {
-                            matrix[row].Reverse();
-                            rowBan = row;
-                            colBan = ep - col;
-                        }
-                        else if ((col != 1))
-                        {
-                            columnReverse(col);
-                            rowBan = ep - row;
-                            colBan = col;
-                        }
-                        else if ((row != 1))
-                        {
-                            matrix[row].Reverse();
-                            rowBan = row;
-                            colBan = ep - col;
-                        }
-
-                    }
-                    if (rowBan == 1 && colBan == 1)
-                        printMsg("Se capturo movimiento erroneo");
-
-                }
-
+                return col;
             }
 
-            void moving(int row, int col, int val)
+            int colReverse(int row, int col)
             {
-                if (ban00 == false && ban01 == false && ban10 == false && ban11 == false)
+                if (matrix[row][col] > getOppositeColumnValue(row, col))
                 {
-                    printMsg("moving");
-                    if (row > 1 && col > 1)
+                    while (row > 1)
                     {
-                        columnReverse(col);
-                        matrix[ep - row].Reverse();
-                        rowBan = ep - row;
-                        colBan = ep - col;
+                        if (ep - row == 0)
+                        {
+                            if (matrix[1][col] > getOppositeColumnValue(1, col))
+                            {
+                                matrix[1].Reverse();
+                                columnReverse(col);
+                                matrix[1].Reverse();
+                                row = ep - row;
+                                print("matrix", 1, "row > 1 y renglon 1 mayor");
+                                return row;
+                            }
+                            else
+                            {
+                                columnReverse(col);
+                                row = ep - row;
+                                print("matrix", 1, "row > 1 y renglon 1 menor");
+                                return row;
+                            }
+                        }
+                        else if (ep - row == 1)
+                        {
+                            if (matrix[0][col] > getOppositeColumnValue(1, col))
+                            {
+                                matrix[0].Reverse();
+                                columnReverse(col);
+                                matrix[0].Reverse();
+                                row = ep - row;
+                                print("matrix", 1, "row > 1 y renglon 0 mayor");
+                                return row;
+                            }
+                            else
+                            {
+                                columnReverse(col);
+                                row = ep - row;
 
-                        printMatrix("Col reverse + row reverse");
+                                print("matrix", 1, "row > 1 y renglon 0 menor");
+                                return row;
+                            }
+                        }
                     }
-                    else if (col > 1)
-                    {
-                        matrix[row].Reverse();
-                        rowBan = row;
-                        colBan = ep - col;
-                        printMatrix("row reverse");
-                    }
-                    else if (row > 1)
-                    {
-                        columnReverse(col);
-                        rowBan = ep - row;
-                        colBan = col;
-                        printMatrix(" row reverse ");
-                    }
-                    else
-                    {
-                        actives(row, col, val);
-                    }
+                    return row;
                 }
+                return row;
             }
 
-            void ubicate(int row, int col, int val)
+            print("matrix",1,"Start");
+                                    
+            
+
+            string moving(int row, int col, int val)
             {
-                printMsg("row = " + row + "|| col =" + col);
-                count++;
-                switch (count)
+                if (matrix[row][col] > getOppositeValue(row, col) && (row > 1 && col > 1))
                 {
-                    case 1:
-                        moving(row, col, val);
-                        break;
-                    case 2:
-                        moving(row, col, val);
-                        break;
-                    case 3:
-                        moving(row, col, val);
-                        break;
-                    case 4:
-                        moving(row, col, val);
-                        break;
-                    default:
-                        moving(row, col, val);
-                        break;
-                }                                    
+                    print("msg", 1, matrix[row][col] + " > " + getOppositeValue(row, col));
+                    while (row > 1)
+                    {
+                        row = colReverse(row, col);                                          
+                    }
+                    while (col > 1)
+                    {
+                        col = rowReverse(row, col);
+                    }
+                    return "col-row";
+                }else if (matrix[row][col] > getOppositeRowValue(row, col) && (row > 1))
+                {
+                    while (col > 1)
+                    {
+                        col = rowReverse(row, col);
+                    }
+                    return "row";
+                }
+                else if (matrix[row][col] > getOppositeColumnValue(row, col) && (col > 1))
+                {
+                    while (row > 1)
+                    {
+                        row = colReverse(row, col);
+                    }
+                    return "col";
+                }
+                return "0";
             }
 
-            maxValues();
+           
             for (int row = 0; row < matrix.Count; row++)
             {                
                 for (int col = 0; col < matrix.Count; col++)
-                {                    
-                    if (max1 == matrix[row][col]) { ubicate(row, col, matrix[row][col]); }
-                    if (max2 == matrix[row][col]) { ubicate(row, col, matrix[row][col]); }
-                    if (max3 == matrix[row][col]) { ubicate(row, col, matrix[row][col]); }
-                    if (max4 == matrix[row][col]) { ubicate(row, col, matrix[row][col]); }
+                {
+                    if (moving(row, col, matrix[row][col])=="row-col")
+                    {
+                        print("matrix", 1, "row - col");
+                        print("msg", 1, "row " + row + " - col " + col);
+                        row = ep-row;
+                        col = ep-col;                        
+                    }else if (moving(row, col, matrix[row][col]) == "row")
+                    {
+                        print("matrix", 1, "row");
+                        print("msg", 1, "row " + row + " - col " + col);
+                        col = ep - col;
+                        
+                    }else if (moving(row, col, matrix[row][col]) == "col")
+                    {
+                        print("matrix", 1, "col");
+                        print("msg", 1, "row " + row + " - col " + col);
+                        row = ep - row;
+                    }
+                    else if (moving(row, col, matrix[row][col]) == "0")
+                    {
+                        print("matrix", 1, "-");
+                        print("msg", 1, "row " + row + " - col " + col);
+                    }
                 }
             }
 
-            printMatrix("After all");
+            print("matrix", 1, "After all");
 
-            printMsg("Posición 00 => " + ban00);
-            printMsg("Posición 10 => " + ban10);
-            printMsg("Posición 01 => " + ban01);
-            printMsg("Posición 11 => " + ban11);
-            printMsg((matrix[0][0]+ matrix[1][0]+ matrix[0][1]+ matrix[1][1]).ToString());
+            print("msg", 1, (matrix[0][0] + matrix[0][1] + matrix[1][0] + matrix[1][1]).ToString());
+
+            print("max",5,"Max Values");
 
             return 5;
         }
